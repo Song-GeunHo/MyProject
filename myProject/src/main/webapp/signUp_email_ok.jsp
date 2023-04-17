@@ -7,7 +7,7 @@
 	<%
 	String id = request.getParameter("id");
 	String pw = request.getParameter("pw");
-	System.out.println(id);
+
 	Connection conn = null;
 	PreparedStatement pstmt = null;
 	Statement stmt = null;
@@ -19,25 +19,28 @@
 		DataSource ds = (DataSource) env.lookup("jdbc/myoracle");
 		conn = ds.getConnection();
 		
-		String sql = "SELECT id FROM member WHERE id = ?";
+		String sql = "SELECT id FROM members WHERE id = ?";
 		pstmt = conn.prepareStatement(sql);	
 		pstmt.setString(1, id);
 		
-		pstmt.executeQuery();
+		rs = pstmt.executeQuery();
 		
-		System.out.println("중복");
-		session.setAttribute("existsID", true );
+		if ( rs.next() ) {
+			session.setAttribute("existsID", "exists" );
+		} else {
+			session.setAttribute("existsID", "none" );
+			stmt = conn.createStatement();
+			stmt.executeQuery("INSERT INTO members VALUES(\'" + id + "\',\'" + pw + "\')");
+		}
 		response.sendRedirect("signUp_email.jsp");
 
 	} catch (Exception e) {
-		System.out.println("가입");
-		stmt = conn.createStatement();
-		stmt.executeQuery("INSERT INTO members VALUES(" + id + "," + pw + ")");
-		response.sendRedirect("main.html");
 		e.printStackTrace();
+		response.sendRedirect("signUp_email.jsp");
 	} finally {
 		try {
 			if ( conn != null ) conn.close();
+			if ( stmt != null ) stmt.close();
 			if ( pstmt != null ) pstmt.close();
 		} catch ( Exception e ) {
 			e.printStackTrace();

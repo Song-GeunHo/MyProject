@@ -10,6 +10,7 @@
         @import url('styles/size.css');
         @import url('styles/color.css');
     </style>
+    <script src="scripts/signUpCheck.js?"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 
@@ -20,7 +21,7 @@
                 <figure><img src="images/ARTMU.png"></figure>
             </a>
 
-            <form id="sign_email" action="signUp_email_ok.jsp" method="post" onsubmit="return signUp_email();" novalidate>
+            <form id="sign_email" action="signUp_email_ok.jsp" method="post" onsubmit="return signUpCheck();" novalidate>
                 <div id="inner_wrap">
                     <div id="sign_input">
                         <h2>이메일로 가입하기</h2>
@@ -63,9 +64,21 @@
     </div>
     <script src="scripts/inputCheck.js?ver=1"></script>
     <script>
-    	if ( <%= session.getAttribute("existsID") %> ) {
-    		swal("Good job!", "You clicked the button!", "success");
-    	}
+    		<% String existsID = (String)session.getAttribute("existsID"); %>
+
+    		if( "<%=existsID%>" !== "null" )
+    		{
+    			let existsID = "<%=existsID%>";
+    			
+    			if ( existsID === "exists" ) {
+    				swal("이미 가입된 이메일 계정입니다.", "새로운 이메일 계정을 입력해주세요.", "error");
+    				<% session.removeAttribute("existsID"); %>
+    			} else {
+	    			swal("가입 완료!", "로그인을 진행해주세요.", "success");
+	    			if ( swal.close() )
+	    				location.href ="main.html";
+    			}
+    		}
     </script>
 </body>
 
