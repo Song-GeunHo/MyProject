@@ -1,13 +1,20 @@
+
 let toggle = true;
 const id = document.getElementById("id");
+const whatId = id.parentElement.parentElement.parentElement.parentElement.getAttribute("id");
+
 const pw = document.getElementById("pw");
 const repw = document.getElementById("repw");
 const idErr = id.nextElementSibling;
 const pwErr = pw.nextElementSibling;
 const repwErr = repw.nextElementSibling;
+let name, birthYear, birthMonth, birthDay, addr, phone;
 
-const idRegExp = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+const idRegExp = whatId==="sign_email" ? /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i : /^[a-zA-Z][0-9a-zA-Z]{5,14}$/i;
 const pwRegExp = /^.*(?=^.{8,}$)(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%*^&+=]).*$/;
+
+if( whatId === "sign_us")
+ 	
 
 id.addEventListener("input", () => {
 
@@ -63,35 +70,12 @@ function signUp_email() {
     const repwIsValid = (repw.value.length != 0) && (pw.value == repw.value) && pwRegExp.test(repw.value);
 
     if ( !idIsValid ) {
-        showIdError();
-    } else {
-        id.style.borderColor = "green";
-        idErr.textContent = "";
-        idErr.className = "error";
+        return showIdError();
+    } else if ( !pwIsValid ) {
+        return showPwError();
+    } else if ( !repwIsValid ) {
+        return showRepwError();
     }
-
-    if ( !pwIsValid ) {
-        showPwError();
-    } else {
-        pw.style.borderColor = "green";
-        pwErr.textContent = "";
-        pwErr.className = "error";
-    }
-
-    if ( !repwIsValid ) {
-        showRepwError();
-    } else {
-        repw.style.borderColor = "green";
-        repwErr.textContent = "";
-        repwErr.className = "error";
-    }
-
-	if ( idIsValid && pwIsValid && repwIsValid ) {
-		return true;
-	}
-	else {
-		return false;
-	}
 	
 }
 

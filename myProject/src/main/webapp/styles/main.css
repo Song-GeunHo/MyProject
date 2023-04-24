@@ -60,16 +60,34 @@ a:visited {
     justify-content: space-around;
 }
 
-#nav_list li{
+#nav_list li {
     width: 150px;
     height: 100%;
     line-height: 100px;
     font-size: 1.2em;
     font-weight: 600;
+    cursor: pointer;
 }
 
-#nav_list a:hover {
-    color: #408BCB;
+#nav_list li:first-child:hover {
+	font-weight: 500;
+    color: rgb(231, 171, 199);
+}
+#nav_list li:nth-child(2):hover {
+	font-weight: 500;
+    color: rgb(197, 234, 139);
+}
+#nav_list li:nth-child(3):hover {
+	font-weight: 500;
+    color: rgb(253, 231, 128);
+}
+#nav_list li:nth-child(4):hover {
+	font-weight: 500;
+    color: rgb(180, 148, 197);
+}
+#nav_list li:last-child:hover {
+	font-weight: 500;
+    color: rgb(134,225,224);
 }
 
 #util_list {
@@ -99,7 +117,7 @@ a:visited {
 
 #contents_wrap > div:first-child {
     background-color: rgb(134,225,224);
-    animation: intervalColor 15s infinite;
+    animation: intervalColor 20s infinite;
 }
 
 @keyframes intervalColor {

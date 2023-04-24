@@ -17,7 +17,7 @@
     <div id="all_wrap">
         <div id="form_wrap">
             <a href="#">
-                <figure><a href="main.html"><img src="images/ARTMU.png"></a></figure>
+                <figure><a href="main.jsp"><img src="images/ARTMU.png"></a></figure>
             </a>
 
             <form id="login" action="login_ok.jsp" method="post" onsubmit="return login();" novalidate>

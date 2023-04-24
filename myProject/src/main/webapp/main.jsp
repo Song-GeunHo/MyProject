@@ -9,7 +9,7 @@
     <meta charset="utf-8">
     <style>
         @import url('styles/font.css');
-        @import url('styles/main.css');
+        @import url('styles/main.css?a');
     </style>
 </head>
 
@@ -17,7 +17,7 @@
     <div id="all_wrap">
         <header>
             <div class="inner_width flex_inner">
-                <a href="main.html">
+                <a href="main.jsp">
                     <figure><img src="images/ARTMU.png"></figure>
                 </a>
                 <nav>
@@ -31,8 +31,15 @@
                 </nav>
                 <div id="util_list_wrap">
                     <ul id="util_list">
+                    	<%
+                    			if ( id != null) {
+                    	%>
                     	<li><a href="updatePassword.jsp"><img src="images/user-icon.png" width=20 height=20><%=id  %></a></li>
                         <li><a href="logout.jsp">Sign Out</a></li>
+                        <%} else { %>
+                        <li><a href="login.jsp">Sign In</a></li>
+                        <li><a href="sign.html">Sign Up</a></li>
+						<%} %>
                     </ul>
                 </div>
             </div>

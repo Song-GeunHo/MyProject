@@ -4,18 +4,16 @@
     <meta charset="utf-8">
     <style>
         @import url('styles/font.css');
-        @import url('styles/layout.css');
-        @import url('styles/size.css');
-        @import url('styles/color.css');
+        @import url('styles/layout.css?a1');
+        @import url('styles/size.css?b1');
+        @import url('styles/color.css?c2');
     </style>
 </head>
 
 <body>
     <div id="all_wrap">
         <div id="form_wrap">
-            <a href="login.html">
-                <figure><a href="main.html"><img src="images/ARTMU.png"></a></figure>
-            </a>
+                <figure><a href="main.jsp"><img src="images/ARTMU.png"></a></figure>
 
             <div id="inner_wrap">
                 <p id="content">
@@ -37,7 +35,8 @@
                     <div id="div_hr"></div><span>또는</span><div id="div_hr"></div>
                 </div>
                 <a href="signUp_email.jsp"><input id="signUp_email" type="button" value="이메일로 가입하기"></a>
-                <p><a href="login.html">이미 아트뮤 통합 계정이 있으신가요?<span>로그인 하기</span></a></p>
+                <a href="signUp.jsp"><input id="signUp_us" type="button" value="아트뮤 회원 가입하기"></a>
+                <p><a href="login.jsp">이미 아트뮤 통합 계정이 있으신가요?<span>로그인 하기</span></a></p>
             </div>
         </div>
     </div>

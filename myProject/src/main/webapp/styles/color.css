@@ -6,19 +6,23 @@ body {
     background-color: white;
 }
 
-.input {
+.input, #sign_input select {
     border-color: #DFDFDF;
 }
 
-.input:focus {
+.input:focus, #sign_input select:focus {
     border-color: #313131;
+}
+
+#sign_input select {
+	color: #757575;
 }
 
 .error {
     color : #900;
 }
 
-#signUp_email {
+#signUp_email, #signUp_us {
     background-color: white;
     border-color: #DFDFDF;
 }

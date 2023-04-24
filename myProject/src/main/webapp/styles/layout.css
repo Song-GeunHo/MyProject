@@ -12,7 +12,7 @@
     justify-content: space-between;
 }
 
-#login,#sign_email {
+#login,#sign_email, #sign_us {
     display: flex;
     text-align: left;
     flex-direction: column;
@@ -28,7 +28,7 @@
     outline: none;
 }
 
-.input, #signUp_email {
+.input, #signUp_email, #signUp_us {
     border-style: solid;
 }
 
@@ -82,7 +82,7 @@ img {
     border-style: none;
 }
 
-#signUp_kakao, #sign_ul_wrap li, #signUp_email, #terms_unfold {
+#signUp_kakao, #sign_ul_wrap li, #signUp_email, #signUp_us , #terms_unfold {
     cursor: pointer;
 }
 
@@ -98,6 +98,14 @@ img {
 
 #div_hr {
     border-style: solid;
+}
+
+#sign_input select {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAUCAMAAACtdX32AAAAdVBMVEUAAAD///8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAhMdQaAAAAJ3RSTlMAAAECAwQGBwsOFBwkJTg5RUZ4eYCHkJefpaytrsXGy8zW3+Do8vNn0bsyAAAAYElEQVR42tXROwJDQAAA0Ymw1p9kiT+L5P5HVEi3qJn2lcPjtIuzUIJ/rhIGy762N3XaThqMN1ZPALsZPEzG1x8LrFL77DHBnEMxBewz0fJ6LyFHTPL7xhwzWYrJ9z22AqmQBV757MHfAAAAAElFTkSuQmCC);
+	background-repeat: no-repeat;
 }
 
 #cert_input div {

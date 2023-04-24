@@ -17,11 +17,11 @@
 <body>
     <div id="all_wrap">
         <div id="form_wrap">
-            <a href="main.html">
+            <a href="main.jsp">
                 <figure><img src="images/ARTMU.png"></figure>
             </a>
 
-            <form id="sign_email" action="signUp_email_ok.jsp" method="post" onsubmit="return signUpCheck();" novalidate>
+            <form id="sign_email" action="signUp_email_ok.jsp" method="post" onsubmit="return signUp_email();" novalidate>
                 <div id="inner_wrap">
                     <div id="sign_input">
                         <h2>이메일로 가입하기</h2>
@@ -65,18 +65,16 @@
     <script src="scripts/inputCheck.js?ver=1"></script>
     <script>
     		<% String existsID = (String)session.getAttribute("existsID"); %>
-
-    		if( "<%=existsID%>" !== "null" )
-    		{
-    			let existsID = "<%=existsID%>";
-    			
-    			if ( existsID === "exists" ) {
+			
+    		if ( "<%=existsID%>" !== "null" ) {
+    			if ( "<%=existsID%>" === "exists" ) {
     				swal("이미 가입된 이메일 계정입니다.", "새로운 이메일 계정을 입력해주세요.", "error");
     				<% session.removeAttribute("existsID"); %>
     			} else {
 	    			swal("가입 완료!", "로그인을 진행해주세요.", "success");
-	    			if ( swal.close() )
-	    				location.href ="main.html";
+	    			setTimeout(() => {
+	    				location.href ="main.jsp";
+					}, 3000);
     			}
     		}
     </script>
